@@ -3,7 +3,19 @@ const { Controller } = require('egg');
 
 class HomeController extends Controller {
     async index() {
-        await this.ctx.render('home.nj');
+        const { ctx, service } = this;
+        const [
+            count,
+            ad_slots
+        ] = [
+            await service.solt.size(),
+            await service.solt.list()
+        ];
+        await ctx.render('home.nj', {
+            solts: ad_slots,
+            pageNum: 0,
+            pageTotal: Math.ceil(count / global.DEF_LIMIT),
+        });
     }
 }
 

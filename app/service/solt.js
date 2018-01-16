@@ -8,8 +8,17 @@ class SoltService extends Service {
         } : null));
         return solts;
     }
-    async all() {
-        return await this.app.mysql.select('ad_solt');
+    async size() {
+        const { app } = this;
+        return await app.mysql.select('ad_solt', {
+            count: 'id_ad_solt',
+        });
+    }
+    async list(offset = 0, limit = global.DEF_LIMIT) {
+        return await this.app.mysql.select('ad_solt', {
+            limit,
+            offset,
+        });
     }
     async create({ name, price, camount, impl, payouts }) {
         const result = await this.app.mysql.insert('ad_solt', {

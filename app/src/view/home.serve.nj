@@ -1,11 +1,13 @@
 {% extends './layout/default.nj' %}
 {% block head %}
-<% if (htmlWebpackPlugin.files.chunks.vendor.css.length) { %>
-<link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.vendor.css[0] %>">
-<% } %>
-<% if (htmlWebpackPlugin.files.chunks.index.css.length) { %>
-<link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.index.css[0] %>">
-<% } %>
+<% var c = htmlWebpackPlugin.files.chunks; %>
+<% if (c.index.css.length) { 
+    for(var _i = 0; _i < c.index.css.length; _i++){
+    %>
+<link rel="stylesheet" href="<%= c.index.css[_i] %>">
+<% } 
+}
+%>
 {% endblock %}
 {% block body %}
 <aside class="main-sidebar">
@@ -68,35 +70,46 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <div class="table-responsive">
-                <table class="table no-margin">
-                  <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Campagin Amount</th>
-                        <th>Impressions</th>
-                        <th>Clicks</th>
-                        <th>Payouts</th>
-                        <th><i class="fa fa-circle-o"></i> Options</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                        <td><a href="/solt/detail/1">0001</a></td>
-                        <td>Call of Duty IV</td>
-                        <td>12.00</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>
-                            <button class="btn btn-primary btn-xs ad-click-event"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-danger btn-xs ad-click-event"><i class="fa fa-trash"></i></button>
-                        </td>
-                    </tr>
-                  </tbody>
+              <div id="solt_wrapper" class="dataTables_wrapper dt-bootstrap">
+                <table class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting_asc" tabindex="0" aria-sort="ascending">ID</th>
+                            <th class="sorting" tabindex="0" aria-sort="ascending">Name</th>
+                            <th>Price</th>
+                            <th>Campagin Amount</th>
+                            <th>Impressions</th>
+                            <th>Clicks</th>
+                            <th>Payouts</th>
+                            <th><i class="fa fa-circle-o"></i> Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for solt in solts %}
+                        <tr>
+                            <td><a href="/solt/detail/{{solt.id_ad_solt}}">{{solt.id_ad_solt}}</a></td>
+                            <td>{{solt.ad_solt_name}}</td>
+                            <td>{{solt.ad_solt_price.toFixed(2)}}</td>
+                            <td>{{solt.ad_solt_camount.toFixed.call(2)}}</td>
+                            <td>{{solt.ad_solt_imp}}</td>
+                            <td>{{solt.ad_solt_clicks}}</td>
+                            <td>{{solt.ad_solt_payouts}}</td>
+                            <td>
+                                <a src="/solt/edit/{{solt.id_ad_solt}}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
+                                <a src="javascript:;" data-id="{{solt.id_ad_solt}}" class="btn btn-danger btn-xs js-solt-remove"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="8">
+                                <div class="callout callout-info">
+                                    <h4>No Data</h4>
+                                    You can <a href="/ad_solt/create">Create One</a>.
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
                 </table>
               </div>
               <!-- /.table-responsive -->
@@ -127,6 +140,6 @@
 </div>
 {% endblock %}
 {% block tail %}
-<script src="<%= htmlWebpackPlugin.files.chunks.vendor.entry %>"></script>
-<script src="<%= htmlWebpackPlugin.files.chunks.index.entry %>"></script>
+<script src="<%= c.vendor.entry %>"></script>
+<script src="<%= c.index.entry %>"></script>
 {% endblock %}

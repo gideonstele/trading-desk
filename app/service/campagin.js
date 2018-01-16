@@ -7,8 +7,17 @@ class CampaginService extends Service {
         } : null));
         return camps;
     }
-    async all() {
-        return await this.app.mysql.select('ad_campagin');
+    async size() {
+        const { app } = this;
+        return await app.mysql.select('ad_campagin', {
+            count: 'id_ad_campagin'
+        });
+    }
+    async list(offset = 0, limit = global.DEF_LIMIT) {
+        return await this.app.mysql.select('ad_campagin', {
+            limit,
+            offset,
+        });
     }
 }
 

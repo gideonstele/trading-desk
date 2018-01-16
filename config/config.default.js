@@ -54,5 +54,7 @@ module.exports = appInfo => {
         dir: path.join(appInfo.baseDir, 'app/public'),
     };
 
+    global.DEF_LIMIT = config.defaultLimit = 10;
+
     return config;
 };

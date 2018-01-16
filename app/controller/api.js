@@ -4,13 +4,19 @@ const { Controller } = require('egg');
 
 class ApiController extends Controller {
     async data() {
-        const { service } = this.ctx;
+        const { ctx } = this;
+        const { service } = ctx;
+        const query = ctx.query || {};
+        const soltOffset = query.soltPage || 0,
+            soltLimit = query.limit || global.DEF_LIMIT,
+            campOffset = query.campPage || 0,
+            campLimit = query.campLimit || global.DEF_LIMIT;
         const [
             ad_slots,
             camps,
         ] = [
-            await service.solt.all(),
-            await service.campagin.all(),
+            await service.solt.list(soltOffset, soltLimit),
+            await service.campagin.list(campOffset, campLimit),
         ];
         this.ctx.body = {
             status: {
@@ -18,8 +24,16 @@ class ApiController extends Controller {
                 msg: 'OK',
             },
             result: {
-                ad_slots,
-                camps,
+                ad_slots: {
+                    page: soltOffset,
+                    limit: soltLimit,
+                    data: ad_slots,
+                },
+                camps: {
+                    page: campOffset,
+                    limit: campLimit,
+                    data: camps,
+                },
             },
         };
     }

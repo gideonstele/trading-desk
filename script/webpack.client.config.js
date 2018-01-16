@@ -102,6 +102,8 @@ const config = {
         ], {
             root: cwd,
         }),
+        extractBootstrapPlugin,
+        extractStylePlugin,
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks(module, count ) {
@@ -115,8 +117,6 @@ const config = {
                 );
             },
         }),
-        extractBootstrapPlugin,
-        extractStylePlugin,
         new UglifyJsPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(cwd, 'app/src/view/home.serve.nj'),
