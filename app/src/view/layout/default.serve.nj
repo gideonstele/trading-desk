@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    {% block title %}
+    <title>Trading Desk</title>
+    {% endblock %}
+    <meta charset="utf-8">
+    <meta name="description" content="index.description">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    {% block head %}{% endblock %}
+</head>
+<body class="skin-blue sidebar-mini" style="height: auto; min-height: 100%;">
+<section class="wrapper" style="height: auto; min-height: 100%;">
+{% block header %}
+<header class="main-header">
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>Tr</b>D</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Trading</b>Desk</span>
+    </a>
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+    </nav>
+  </header>
+{% endblock %}
+{% block body %}{% endblock %}
+</section>
+<footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      powered by shijinyu
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright © 2018 <a href="#">Company</a>.</strong> All rights reserved.
+</footer>
+{% block tail %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+{% extends './layout/default.nj' %}
+{% block head %}
+
+
+<link rel="stylesheet" href="/public/common-32ab29a.css">
+
+{% endblock %}
+{% block body %}
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel">
+        <div class="pull-left image">
+            <img src="/public/static/res/user2-160x160.eafc49f.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+            <p>Alexander Pierce</p>
+            <!-- Status -->
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+        </div>
+        <!-- search form (Optional) -->
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+        <!-- /.search form -->
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu tree" data-widget="tree">
+        <li class="header">功能</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Ad Solts</span></a></li>
+        <li><a href="#"><i class="fa fa-link"></i> <span>Campagins</span></a></li>
+        <li class="bg-green"><a href="#" style="background-color: rgb(0, 166, 90);"><i class="fa fa-star-o" style="color: rgb(255, 255, 255);"></i><span style="color: rgb(255, 255, 255);">Ad Reports</span></a></li></ul>
+        <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+</aside>
+<article class="content-wrapper" style="min-height: 348px;">
+    <!-- content header -->
+    <section class="content-header">
+      <h1>
+        Dash Panel
+        <small>Welcome To Trading Desk.</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Trading Desk</a></li>
+        <li class="active">Home</li>
+      </ol>
+    </section>
+    <!-- /content header -->
+    <!-- content body -->
+    <section class="content">
+        <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Ads Solt List</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-success"><i class="fa fa-plus mr-1"></i><span>Create<span></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+                <table class="table no-margin">
+                  <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Campagin Amount</th>
+                        <th>Impressions</th>
+                        <th>Clicks</th>
+                        <th>Payouts</th>
+                        <th><i class="fa fa-circle-o"></i> Options</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td><a href="/solt/detail/1">0001</a></td>
+                        <td>Call of Duty IV</td>
+                        <td>12.00</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <button class="btn btn-primary btn-xs ad-click-event"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-danger btn-xs ad-click-event"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+              <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+              </nav>
+            </div>
+            <!-- /.box-footer -->
+          </div>
+    </section>
+    <!-- /content body -->
+</article>
+</div>
+{% endblock %}
+{% block tail %}
+<script src="/public/vendor.4258df9.js"></script>
+<script src="/public/index.32ab29a.js"></script>
+{% endblock %}

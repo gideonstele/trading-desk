@@ -1,0 +1,78 @@
+{
+  "name": "trading-desk",
+  "version": "1.0.0",
+  "description": "Implement simple application for advertising campaigns managment.",
+  "private": true,
+  "scripts": {
+    "start": "egg-scripts start --daemon",
+    "stop": "egg-scripts stop",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod",
+    "webpack": "webpack --config script/webpack.client.config.js --progress --hide-modules"
+  },
+  "dependencies": {
+    "admin-lte": "^2.4.2",
+    "bootstrap": "^3.3.7",
+    "bootstrap4": "^0.0.1-security",
+    "egg": "^2.0.0",
+    "egg-mysql": "^3.0.0",
+    "egg-passport": "^2.0.1",
+    "egg-passport-github": "^1.0.0",
+    "egg-scripts": "^2.1.0",
+    "egg-static": "^1.5.0",
+    "egg-view-nunjucks": "^2.1.4",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1",
+    "koa-is-json": "^1.0.0",
+    "lodash": "^4.17.4",
+    "zlib": "^1.0.5"
+  },
+  "devDependencies": {
+    "autod": "^3.0.1",
+    "autod-egg": "^1.0.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.8",
+    "egg-bin": "^4.3.5",
+    "egg-ci": "^1.8.0",
+    "egg-mock": "^3.13.0",
+    "eslint": "^4.11.0",
+    "eslint-config-egg": "^5.1.0",
+    "eslint-loader": "^1.9.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "html-loader": "^0.5.4",
+    "html-webpack-plugin": "^2.30.1",
+    "json-loader": "^0.5.7",
+    "mocha": "^4.1.0",
+    "nunjucks-loader": "^2.4.8",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.19.1",
+    "uglifyjs-webpack-plugin": "^1.1.6",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0",
+    "webstorm-disable-index": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "shijinyu<sjym90@gmail.com>",
+  "license": "MIT"
+}
